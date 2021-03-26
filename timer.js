@@ -88,8 +88,15 @@ var x = setInterval(function() {
   if (startTimer === false) {
     var totalDonatedInSeconds = totalDonated * 60
     var hours2 = Math.floor((totalDonatedInSeconds % (60 * 60 * 24)) / (60*60));
-    var minutes2 = Math.floor((totalDonatedInSeconds % (60 * 60) /(60)));    
-    document.getElementById("time").innerHTML = hours2 + ":" + minutes2
+    var minutes2 = Math.floor((totalDonatedInSeconds % (60 * 60) /(60)));
+    if (minutes2 < 10) {
+      document.getElementById("time").innerHTML = hours2 + ":" + minutes2 + "0"
+    } else
+      {
+        document.getElementById("time").innerHTML = hours2 + ":" + minutes2
+      }
+       
+    
   }
   // If the count down is finished, write some text
   if (distance < 0) {
