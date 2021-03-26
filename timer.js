@@ -82,20 +82,34 @@ var x = setInterval(function() {
 
   // Display the result in the element with id="demo"
   if (startTimer === true) {
-  document.getElementById("time").innerHTML = hours + ":" + minutes + ":" + seconds;
+  document.getElementById("time").innerHTML = hours + ":" + minutes + ":" + seconds
+   
   console.log( hours + ":" + minutes + ":" + seconds)
   }
   if (startTimer === false) {
     var totalDonatedInSeconds = totalDonated * 60
     var hours2 = Math.floor((totalDonatedInSeconds % (60 * 60 * 24)) / (60*60));
     var minutes2 = Math.floor((totalDonatedInSeconds % (60 * 60) /(60)));
-    if (minutes2 < 10 < 0) {
+    if (minutes2 < 10) {
       document.getElementById("time").innerHTML = hours2 + ":" + "0" + minutes2
+      if (hours2 < 10) {
+        document.getElementById("time").innerHTML = "0" + hours2 + ":" + "0" + minutes2
+      } else
+        {
+          document.getElementById("time").innerHTML = hours2 + ":" + minutes2
+        }
+       
     } else
       {
-        document.getElementById("time").innerHTML = hours2 + ":" + minutes2
+        if (hours2 < 10) {
+          document.getElementById("time").innerHTML = "0" + hours2 + ":" + minutes2
+        } else
+          {
+            document.getElementById("time").innerHTML = hours2 + ":" + minutes2
+          }
+         
       }
-       
+     
     
   }
   // If the count down is finished, write some text
